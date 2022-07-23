@@ -10,6 +10,7 @@ defaultContentLanguage = "zh"
 title = "Dapr 实践"
 description = "一个关于 Dapr 实战的网站"
 languageName ="zh"
+contentDir = "content"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
