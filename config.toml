@@ -2,15 +2,24 @@ baseURL = "https://dapr.whuanle.cn"
 title = "Dapr 实践"
 
 # Language settings
-contentDir = "content"
+contentDir = "content/zh"
 defaultContentLanguage = "zh"
+
+defaultContentLanguageInSubdir = false
+# Useful when translating.
+enableMissingTranslationPlaceholders = true
+
+enableRobotsTXT = true
+
+# Will give values to .Lastmod etc.
+enableGitInfo = true
 
 [languages]
 [languages.zh]
 title = "Dapr 实践"
 description = "一个关于 Dapr 实战的网站"
 languageName ="zh"
-contentDir = "content"
+contentDir = "content/zh"
 time_format_default = "02.01.2006"
 time_format_blog = "02.01.2006"
 
@@ -37,14 +46,6 @@ time_format_blog = "02.01.2006"
     weight = 40
     url = "/community"
 
-defaultContentLanguageInSubdir = false
-# Useful when translating.
-enableMissingTranslationPlaceholders = true
-
-enableRobotsTXT = true
-
-# Will give values to .Lastmod etc.
-enableGitInfo = true
 
 # Comment out to enable taxonomies in Docsy
 # disableKinds = ["taxonomy", "taxonomyTerm"]
@@ -113,7 +114,10 @@ id = "UA-00000000-0"
 
 # Comment out if you don't want the "print entire section" link enabled.
 [outputs]
-section = ["HTML", "print", "RSS"]
+# 打印
+# section = ["HTML", "print", "RSS"]
+
+disable_toc = false
 
 [params]
 copyright = "痴者工良"
@@ -124,7 +128,7 @@ privacy_policy = "/about"
 
 # Menu title if your navbar has a versions selector to access old versions of your site.
 # This menu appears only if you have at least one [params.versions] set.
-version_menu = "Releases"
+version_menu = "教程版本"
 
 # Flag used in the "version-banner" partial to decide whether to display a 
 # banner on every page indicating that this is an archived version of the docs.
@@ -141,7 +145,7 @@ version = "0.0"
 url_latest_version = "https://dapr.whuanle.cn"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/whuanle/dapr_practice"
+#github_repo = "https://github.com/whuanle/dapr_practice"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/whuanle/dapr_practice"
 
@@ -164,6 +168,11 @@ offlineSearch = true
 # Enable syntax highlighting and copy buttons on code blocks with Prism
 prism_syntax_highlighting = false
 
+[[params.versions]]
+  version = "main"
+  url = "https://dapr.whuanle.cn"
+
+
 # User interface configuration
 [params.ui]
 #  Set to true to disable breadcrumb navigation.
@@ -176,7 +185,7 @@ navbar_logo = true
 # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
 navbar_translucent_over_cover_disable = true
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = true
+sidebar_menu_compact = false
 # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = false
 
@@ -185,7 +194,8 @@ sidebar_search_disable = false
 # If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
 # add "hide_feedback: true" to the page's front matter.
 [params.ui.feedback]
-enable = true
+# 是否显示 “此页面是否有用”
+enable = false
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
 yes = 'Glad to hear it! Please <a href="https://github.com/whuanle/dapr_practice/issues/new">tell us how we can improve</a>.'
 no = 'Sorry to hear that. Please <a href="https://github.com/whuanle/dapr_practice/issues/new">tell us how we can improve</a>.'
