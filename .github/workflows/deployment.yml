@@ -36,4 +36,4 @@ jobs:
           publish_dir: ./public
           
       - name: SeeDir
-        run: ls -lah
+        run: ls -lah public
