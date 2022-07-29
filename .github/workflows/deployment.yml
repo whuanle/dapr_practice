@@ -66,14 +66,13 @@ jobs:
       - name: Push Docker
         run: docker push ${{ secrets.DOCKER_REGISTRY }}:latest
         
-        
-      - id: ssh
-        uses: invi5H/ssh-action@v1
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
         with:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PORT: 22
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-          
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} docker pull ${{ secrets.DOCKER_REGISTRY }}:latest
-      - run: ssh ${{ steps.ssh.outputs.SERVER }} docker run -itd ${{ secrets.DOCKER_REGISTRY }}:latest
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script:  |
+            docker pull ${{ secrets.DOCKER_REGISTRY }}:latest
+            docker run -itd ${{ secrets.DOCKER_REGISTRY }}:latest
