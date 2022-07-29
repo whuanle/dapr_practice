@@ -9,3 +9,4 @@ npm install
 ```
 hugo server -D
 ```
+1
