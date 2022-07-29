@@ -66,6 +66,8 @@ jobs:
       - name: Push Docker
         run: docker push ${{ secrets.DOCKER_REGISTRY }}:latest
         
+      - run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}
+        
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
