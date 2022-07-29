@@ -75,5 +75,5 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
           
-      - run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} docker pull ${{ secrets.DOCKER_REGISTRY }}:latest
+      - run: ssh ${{ steps.ssh.outputs.SERVER }} docker pull ${{ secrets.DOCKER_REGISTRY }}:latest
       - run: ssh ${{ steps.ssh.outputs.SERVER }} docker run -itd ${{ secrets.DOCKER_REGISTRY }}:latest
