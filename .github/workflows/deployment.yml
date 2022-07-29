@@ -13,13 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # 拉取代码
-      - name: Pull Code
       - uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
           
-      - name: View Code
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: ls -lah
