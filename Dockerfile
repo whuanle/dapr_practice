@@ -1,3 +1,2 @@
-FROM klakegg/hugo:ext-alpine
-
-RUN apk add git
+FROM nginx:latest
+COPY public /usr/share/nginx/html
