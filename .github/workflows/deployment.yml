@@ -2,23 +2,26 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "work" ]
-  pull_request:
-    branches: [ "work" ]
-
+    branches:
+      - 'main'
 jobs:
   CompileBook:
+  # 基础运行环境
     runs-on: ubuntu-latest
     steps:
+    # 拉取代码
       - uses: actions/checkout@v3
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - run: ls
+      - run: ls -lah
+      # 安装、还原 依赖
       - run: yarn -i
-      
+
+      # 使用 Hugo 编译发布网站
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -35,5 +38,27 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           
+      # 查看目录文件
       - name: SeeDir
         run: ls -lah public
+    
+     # 登录 Docker 仓库
+      - name: Docker Login
+        uses: docker/login-action@v2.0.0
+        with:
+          registry: registry.cn-hangzhou.aliyuncs.com
+          username: ${{ secrets.DOCKER_NAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          logout: true
+        
+      # 构建 Docker 镜像
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v3.1.0
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: ${{ secrets.DOCKER_REGISTRY }}:latest
+          
+      - name: Push Docker
+        run: docker push ${{ secrets.DOCKER_REGISTRY }}:latest
