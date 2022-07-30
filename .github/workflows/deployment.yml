@@ -3,10 +3,7 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - 'work'
-    tags:
-      - 'v*'    # 只有创建 v tag 的时候才构建
-
+      - 'main'
 jobs:
   CompileBook:
   # 基础运行环境
