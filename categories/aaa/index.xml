@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dapr 实践 – aaa</title><link>https://dapr.whuanle.cn/categories/aaa/</link><description>Recent content in aaa on Dapr 实践</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://dapr.whuanle.cn/categories/aaa/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: aaa Page</title><link>https://dapr.whuanle.cn/docs/examples/aaaa/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>https://dapr.whuanle.cn/docs/examples/aaaa/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
+&lt;/div>
+&lt;h2 id="标题1">标题1&lt;/h2>
+&lt;h2 id="标题2">标题2&lt;/h2>
+&lt;blockquote>
+&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="标题2-2">标题2-2&lt;/h3></description></item></channel></rss>
